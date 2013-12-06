@@ -10,7 +10,7 @@ RUN ln -s /bin/true /sbin/initctl
 RUN apt-get update
 RUN apt-get install mongodb-10gen
 
-RUN mkdir -p /data/db
-
 EXPOSE 27017 28017
-ENTRYPOINT ["usr/bin/mongod"]
+VOLUME ["/data/db"]
+
+CMD /usr/bin/mongod
